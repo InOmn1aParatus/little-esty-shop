@@ -3,7 +3,17 @@
 <h3>My Discounts</h3>
 
 <% @merchant.bulk_discounts.each do |discount| %>
-  <p>ID: <%= link_to "#{discount.id}", merchant_bulk_discount_path(@merchant, discount) %></p>
+  <h4>ID: <%= link_to "#{discount.id}", merchant_bulk_discount_path(@merchant, discount) %></h4>
   <p>Percent Discount: <%= discount.pct_discount %>%</p>
   <p>Quantity Threshold: <%= discount.qty_threshold %> units</p>
+<% end %>
+
+<hr><br>
+
+<h4><u>Upcoming Holidays</u></h4>
+
+<% @holidays.each do |holiday| %>
+  <p><%= holiday.name %></p>
+  <p><%= holiday.date %></p>
+  <br>
 <% end %>
