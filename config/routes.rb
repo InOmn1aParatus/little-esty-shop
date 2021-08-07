@@ -14,4 +14,6 @@ Rails.application.routes.draw do
     resources :invoices, only: [:index, :show]
     resources :invoice_item, only: [:update]
   end
+
+  resources :bulk_discounts
 end
