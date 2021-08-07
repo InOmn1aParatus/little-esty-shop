@@ -20,4 +20,13 @@ RSpec.describe 'Bulk Discounts ' do
     click_link "#{@discount_1.id}"
     expect(current_path).to eq(merchant_bulk_discount_path(@merchant, @discount_1))
   end
+
+  it 'lists upcoming holidays' do
+    save_and_open_page
+  end
+  # When I visit the discounts index page
+  # I see a section with a header of "Upcoming Holidays"
+  # In this section the name and date of the next 3 upcoming US holidays are listed.
+
+  # Use the Next Public Holidays Endpoint in the [Nager.Date API](https://date.nager.at/swagger/index.html)
 end
