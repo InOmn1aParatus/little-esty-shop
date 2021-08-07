@@ -4,20 +4,22 @@
 
 <%= link_to "Create New Discount", new_merchant_bulk_discount_path(@merchant) %>
 
-<% @merchant.bulk_discounts.each do |discount| %>
-  <h4>ID: <%= link_to "#{discount.id}", merchant_bulk_discount_path(@merchant, discount) %></h4>
-  <p>Percent Discount: <%= discount.pct_discount %>%</p>
-  <p>Quantity Threshold: <%= discount.qty_threshold %> Units</p>
-<% end %>
+<section id="discounts">
+  <% @merchant.bulk_discounts.each do |discount| %>
+    <h4>ID: <%= link_to "#{discount.id}", merchant_bulk_discount_path(@merchant, discount) %></h4>
+    <p>Percent Discount: <%= discount.pct_discount %>%</p>
+    <p>Quantity Threshold: <%= discount.qty_threshold %> Units</p>
+  <% end %>
+</section>
 
 <hr><br>
 
 <h4><u>Upcoming Holidays</u></h4>
 
 <section id="holidays">
-<% @holidays.each do |holiday| %>
-  <p><%= holiday.name %></p>
-  <p><%= holiday.date %></p>
-  <br>
-<% end %>
+  <% @holidays.each do |holiday| %>
+    <p><%= holiday.name %></p>
+    <p><%= holiday.date %></p>
+    <br>
+  <% end %>
 </section>
