@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :items
     resources :invoices, only: [:index, :show]
     resources :invoice_item, only: [:update]
+    resources :bulk_discounts
   end
 
-  resources :bulk_discounts
 end

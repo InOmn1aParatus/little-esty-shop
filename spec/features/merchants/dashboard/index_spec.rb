@@ -152,12 +152,9 @@ RSpec.describe 'Merchant Dashboard' do
 
       it 'links to bulk discount page' do
         visit "/merchants/#{@merchant.id}/dashboard"
-        click_link "View Discounts"
-        expect(current_path).to eq(bulk_discounts_path)
+        click_link "My Discounts"
+        expect(current_path).to eq(merchant_bulk_discounts_path(@merchant))
       end
-      # When I visit my merchant dashboard
-      # Then I see a link to view all my discounts
-      # When I click this link
       # Then I am taken to my bulk discounts index page
       # Where I see all of my bulk discounts including their
       # percentage discount and quantity thresholds
