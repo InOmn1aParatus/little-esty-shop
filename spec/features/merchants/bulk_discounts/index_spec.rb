@@ -27,4 +27,12 @@ RSpec.describe 'Bulk Discounts ' do
   it 'lists the next 3 upcoming holidays using API' do
     expect(page).to have_content("Upcoming Holidays")
   end
+
+  it 'displays link to create a new discount' do
+    click_link "Create New Discount"
+
+    expect(current_path).to eq(new_merchant_bulk_discount_path(@merchant))
+    expect(page).to have_field("Percent Discount:")
+    expect(page).to have_field("Quantity Threshold:")
+  end
 end
