@@ -16,10 +16,5 @@ RSpec.describe 'new Bulk Discount page' do
     within("#discounts") do
       expect(page).to have_content("10")
     end
-    save_and_open_page
   end
-  # Then I am taken to a new page where I see a form to add a new bulk discount
-  # When I fill in the form with valid data
-  # Then I am redirected back to the bulk discount index
-  # And I see my new bulk discount listed
 end

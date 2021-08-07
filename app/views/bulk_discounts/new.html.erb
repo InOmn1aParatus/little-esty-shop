@@ -1,0 +1,12 @@
+<%= render 'dashboard/merch_nav' %>
+
+<h3>New Discount Form</h3>
+<hr><br>
+
+<%= form_with model: [@merchant, @discount], url: merchant_bulk_discounts_path(@merchant), method: :post do |f| %>
+  <%= f.label :pct_discount, "Percent Discount:" %>
+  <%= f.text_field :pct_discount %>
+  <%= f.label :qty_threshold, "Quantity Threshold:" %>
+  <%= f.text_field :qty_threshold %>
+  <%= f.submit "Submit" %>
+<% end %>
