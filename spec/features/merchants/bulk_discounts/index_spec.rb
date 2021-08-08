@@ -5,14 +5,12 @@ RSpec.describe 'Bulk Discounts ' do
     @merchant = create(:merchant)
     @discount_1 = create(:bulk_discount, merchant_id: @merchant.id)
     @discount_2 = create(:bulk_discount, merchant_id: @merchant.id)
-    @holiday_1 = Holiday.new("Pie Day", "1-01-2021")
-    @holiday_2 = Holiday.new("Cake Day", "1-02-2021")
-    @holiday_3 = Holiday.new("Ambiguous Pastry Day", "1-03-2021")
 
     visit merchant_bulk_discounts_path(@merchant)
   end
   
   it 'displays all bulk discounts including their attributes' do
+
     expect(page).to have_content(@discount_1.pct_discount)
     expect(page).to have_content(@discount_1.qty_threshold)
     expect(page).to have_content(@discount_2.pct_discount)
@@ -26,6 +24,7 @@ RSpec.describe 'Bulk Discounts ' do
 
   it 'lists the next 3 upcoming holidays using API' do
     expect(page).to have_content("Upcoming Holidays")
+    # Test for presence of 3 holidays
   end
 
   it 'displays link to create a new discount' do
@@ -34,5 +33,15 @@ RSpec.describe 'Bulk Discounts ' do
     expect(current_path).to eq(new_merchant_bulk_discount_path(@merchant))
     expect(page).to have_field("Percent Discount:")
     expect(page).to have_field("Quantity Threshold:")
+  end
+
+  it 'can delete discounts from page' do
+    within("#discounts") do
+      click_link('Delete Discount', match: :first)
+    end
+    
+    expect(current_path).to eq(merchant_bulk_discounts_path(@merchant))
+    expect(page).to have_content(@discount_2.id)
+    expect(page).to_not have_content(@discount_1.id)
   end
 end

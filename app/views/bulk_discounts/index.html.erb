@@ -9,6 +9,7 @@
     <p>ID: <%= link_to "#{discount.id}", merchant_bulk_discount_path(@merchant, discount) %></p>
     <p>Percent Discount: <%= discount.pct_discount %>%</p>
     <p>Quantity Threshold: <%= discount.qty_threshold %> Units</p>
+    <p><%= link_to "Delete Discount", "/merchants/#{@merchant.id}/bulk_discounts/#{discount.id}", method: :delete, local: true %></p>
     <br>
   <% end %>
 </section>
