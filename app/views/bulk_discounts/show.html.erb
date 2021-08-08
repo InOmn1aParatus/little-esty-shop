@@ -4,4 +4,5 @@
 
 <h4>ID: <%= @discount.id %></h4>
 <p>Percent Discount: <%= @discount.pct_discount %>%</p>
-<p>Quantity Threshold: <%= @discount.qty_threshold %> units</p>
+<p>Quantity Threshold: <%= @discount.qty_threshold %> Units</p>
+<p><%= link_to "Edit Discount", edit_merchant_bulk_discount_path(@merchant, @discount), local: true %></p>
