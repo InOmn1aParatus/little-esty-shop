@@ -22,16 +22,8 @@ class BulkDiscountsController < ApplicationController
   def create
     merchant = Merchant.find(params[:merchant_id])
     discount = merchant.bulk_discounts.new(bulk_dicsount_params)
-    if discount.save
-      redirect_to merchant_bulk_discounts_path(merchant)
-    else
-      redirect_to new_merchant_bulk_discount_path(merchant)
-      flash[:alert] = "Error: #{error_message(discount.errors)}"
-    end
-  end
-
-  def update
-    require 'pry'; binding.pry
+    discount.save
+    redirect_to merchant_bulk_discounts_path(merchant)
   end
 
   def destroy
