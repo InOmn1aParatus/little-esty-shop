@@ -141,7 +141,7 @@ Then next to each bulk discount I see a link to delete it
 When I click this link
 Then I am redirected back to the bulk discounts index page
 And I no longer see the discount listed
-[ ] Complete
+[X] Complete
 ```
 ```
 Merchant Bulk Discount Show
@@ -149,7 +149,7 @@ Merchant Bulk Discount Show
 As a merchant
 When I visit my bulk discount show page
 Then I see the bulk discount's quantity threshold and percentage discount
-[ ] Complete
+[X] Complete
 ```
 ```
 Merchant Bulk Discount Edit
