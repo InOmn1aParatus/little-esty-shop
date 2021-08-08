@@ -100,4 +100,16 @@ RSpec.describe 'Merchant Invoices show page' do
      expect(page).to have_select(:status, selected: 'shipped')
    end
   end
+
+  it 'displays total revenue with & without discounts' do
+    
+  end
+  # Total Revenue and Discounted Revenue
+
+  # As a merchant
+  # When I visit my merchant invoice show page
+  # Then I see the total revenue for my merchant from this invoice
+  # (not including discounts)
+  # And I see the total discounted revenue for my merchant
+  # from this invoice which includes bulk discounts in the calculation
 end
