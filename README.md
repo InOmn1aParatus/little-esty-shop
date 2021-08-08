@@ -1,5 +1,7 @@
 # Little Esty Shop
 
+## [Bulk Discounts Extension](./doc/bulk_discount.md)
+
 ## Table of Contents
 
 - [Background and Description](#background-and-description)
@@ -90,10 +92,6 @@ Learning goals and areas of focus consisted of:
 - [GitHub](https://github.com/amcguire17)
 - [LinkedIn](https://www.linkedin.com/in/amanda-e-mcguire/)
 
-👤  **Matt Kragen**
-- [GitHub](https://github.com/InOmn1aParatus)
-- [LinkedIn](https://www.linkedin.com/in/mattkragen/)
-
 👤  **Carina Sweet**
 - [GitHub](https://github.com/chsweet)
 - [LinkedIn](https://www.linkedin.com/in/carina-h-sweet/)
@@ -101,3 +99,12 @@ Learning goals and areas of focus consisted of:
 👤  **Ezzedine Alwafai**
 - [GitHub](https://github.com/ealwafai)
 - [LinkedIn](https://www.linkedin.com/in/ezzedine-alwafai/)
+
+👤  **Matt Kragen**
+- [GitHub](https://github.com/InOmn1aParatus)
+- [LinkedIn](https://www.linkedin.com/in/mattkragen/)
+
+# Bulk Discounts Extension
+
+This project is an extension of the Little Esty Shop group project. You will add functionality for merchants to create bulk discounts for their items. A “bulk discount” is a discount based on the quantity of items the customer is buying, for example “20% off orders of 10 or more items”.
+
