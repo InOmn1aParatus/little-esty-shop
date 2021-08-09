@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Merchant, type: :model do
   describe 'relationships' do
     it { should have_many(:items) }
+    it { should have_many(:invoices) }
+    it { should have_many(:invoice_items).through(:invoices) }
     it { should have_many(:bulk_discounts) }
   end
 
@@ -63,7 +65,13 @@ RSpec.describe Merchant, type: :model do
 
     describe '.disabled' do
       it 'returns all merchants that are disabled' do
-          expect(Merchant.status_disabled).to eq([@merchant_2, @merchant_6, @merchant_7])
+          expected = [
+            @merchant_2, @merchant_6, @merchant_7,
+            @invoice_1.merchant, @invoice_2.merchant, 
+            @invoice_3.merchant, @invoice_4.merchant,
+            @invoice_5.merchant, @invoice_6.merchant
+          ]
+          expect(Merchant.status_disabled).to eq(expected)
       end
     end
 
