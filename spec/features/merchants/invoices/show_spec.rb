@@ -102,7 +102,8 @@ RSpec.describe 'Merchant Invoices show page' do
   end
 
   it 'displays total revenue with & without discounts' do
-    
+    expect(page).to have_content("Total revenue from invoice: #{@invoice.total_revenue}")
+    expect(page).to have_content("Total discounted revenue: #{@invoice.discounted_revenue}")
   end
   # Total Revenue and Discounted Revenue
 
