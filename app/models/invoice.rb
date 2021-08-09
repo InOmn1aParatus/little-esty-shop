@@ -1,5 +1,6 @@
 class Invoice < ApplicationRecord
   validates :status, presence: true
+  belongs_to :merchant
   belongs_to :customer
   has_many :invoice_items, :dependent => :destroy
   has_many :items, through: :invoice_items
@@ -15,7 +16,7 @@ class Invoice < ApplicationRecord
   end
 
   def self.merchants_invoices(merch_id)
-    joins(:items).where('merchant_id = ?', merch_id).select("invoices.*").distinct
+    joins(:items).where('items.merchant_id = ?', merch_id).select("invoices.*").distinct
   end
 
   def total_revenue

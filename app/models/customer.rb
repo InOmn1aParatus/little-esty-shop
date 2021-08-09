@@ -20,7 +20,7 @@ class Customer < ApplicationRecord
 
   def self.top_five_customers_by_transactions(merchant_id)
   joins(invoices: [:transactions, :items])
-  .where('result = ? and merchant_id = ?', "success", merchant_id)
+  .where('result = ? and items.merchant_id = ?', "success", merchant_id)
   .select("customers.*, count('transactions.result') AS successful_transactions")
   .group("customers.id")
   .order(successful_transactions: :desc)
