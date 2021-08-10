@@ -97,15 +97,17 @@ RSpec.describe Invoice, type: :model do
         merchant = create(:merchant)
         bd = BulkDiscount.create(merchant_id: merchant.id, pct_discount: 10, qty_threshold: 5)
         invoice = create(:invoice)
-        item1 = create(:item, merchant_id: merchant.id, unit_price: 100)
+        item1 = create(:item, merchant_id: merchant.id, unit_price: 1000)
         invoice_item1 = InvoiceItem.create!(
           invoice: invoice,
           item: item1,
-          quantity: 5,
-          unit_price: 100,
+          quantity: 10,
+          unit_price: 1000,
           status: 0
         )
-        expect(invoice.discounted_revenue).to eq(9.00)
+
+        expect(invoice.total_revenue).to eq(100.00)
+        expect(invoice.discounted_revenue).to eq(90.00)
       end
     end
   end

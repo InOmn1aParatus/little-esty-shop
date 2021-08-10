@@ -32,7 +32,14 @@ RSpec.describe InvoiceItem, type: :model do
 
     describe '#discount_price_display' do
       it 'displays discount_price in dollar amount' do
-        ii = create(:invoice_item)
+        ii = create(:invoice_item, unit_price: 1000, quantity: 10)
+        bd = create(:bulk_discount,
+          merchant_id: ii.merchant.id,
+          qty_threshold: 10,
+          pct_discount: 10
+        )
+        ii.apply_discount
+        expect(ii.discount_display).to eq(9.00)
       end
     end
 
@@ -62,7 +69,7 @@ RSpec.describe InvoiceItem, type: :model do
           qty_threshold: 10,
           pct_discount: 10
         )
-        
+
         ii.apply_discount
         expect(ii.discount_price).to eq(9)
       end

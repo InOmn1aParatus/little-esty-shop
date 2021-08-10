@@ -30,14 +30,14 @@ RSpec.describe 'Merchant Invoices show page' do
     within "#invoice_item-info-#{@invoice_item_1.id}" do
       expect(page).to have_content("Invoice item name: #{@item_1.name}")
       expect(page).to have_content("Invoice item quantity: #{@invoice_item_1.quantity}")
-      expect(page).to have_content("Invoice item price: #{@invoice_item_1.unit_price}")
+      expect(page).to have_content("Invoice item price: $#{@invoice_item_1.price_display}")
       expect(page).to have_content("Invoice item status: #{@invoice_item_1.status}")
     end
 
     within "#invoice_item-info-#{@invoice_item_2.id}" do
       expect(page).to have_content("Invoice item name: #{@item_2.name}")
       expect(page).to have_content("Invoice item quantity: #{@invoice_item_2.quantity}")
-      expect(page).to have_content("Invoice item price: #{@invoice_item_2.unit_price}")
+      expect(page).to have_content("Invoice item price: $#{@invoice_item_2.price_display}")
       expect(page).to have_content("Invoice item status: #{@invoice_item_2.status}")
     end
   end
@@ -67,13 +67,7 @@ RSpec.describe 'Merchant Invoices show page' do
   it 'displays total revenue with & without discounts' do
     expect(page).to have_content("Total revenue from invoice: $#{@invoice.total_revenue}")
     expect(page).to have_content("Discounted revenue from invoice: $#{@invoice.discounted_revenue}")
-    save_and_open_page
   end
-  # When I visit my merchant invoice show page
-  # Then I see the total revenue for my merchant from this invoice
-  # (not including discounts)
-  # And I see the total discounted revenue for my merchant
-  # from this invoice which includes bulk discounts in the calculation
 
   it 'links to bulk_discount show page if discount was applied' do
     click_link "View Discount"
