@@ -25,7 +25,9 @@ class InvoiceItem < ApplicationRecord
 
   def apply_discount
     if self.discounted?
-      self.update_columns(unit_price: unit_price * (1 - bulk_discount.pct_discount / 100.00 ))
+      update_columns(discount_price: unit_price * (1 - bulk_discount.pct_discount / 100.00 ))
+    else
+      update_columns(discount_price: unit_price)
     end
   end
 end
