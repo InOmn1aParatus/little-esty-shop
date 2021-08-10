@@ -29,5 +29,13 @@ RSpec.describe InvoiceItem, type: :model do
         expect(invoice_item.price_display).to eq(111.11)
       end
     end
+
+    describe '#discounted?' do
+      it 'determines if invoice item is discounted' do
+        ii = create(:invoice_item, quantity: 10)
+        bd = create(:bulk_discount, merchant_id: ii.merchant.id, qty_threshold: 10)
+        expect(ii.discounted?).to eq(true)
+      end
+    end
   end
 end
