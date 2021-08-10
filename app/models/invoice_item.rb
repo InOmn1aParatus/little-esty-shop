@@ -12,10 +12,12 @@ class InvoiceItem < ApplicationRecord
   end
 
   def discounted?
-    discount = [self.merchant.bulk_discounts.max_discount(self.quantity)]
-    discount.size > 0
+    !bulk_discount.nil?
   end
 
-  def apply_discount
+  def bulk_discount
+    merchant
+    .bulk_discounts
+    .max_discount(self.quantity)
   end
 end
