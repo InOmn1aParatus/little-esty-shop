@@ -30,6 +30,12 @@ RSpec.describe InvoiceItem, type: :model do
       end
     end
 
+    describe '#discount_price_display' do
+      it 'displays discount_price in dollar amount' do
+        ii = create(:invoice_item)
+      end
+    end
+
     describe '#discounted?' do
       it 'determines if invoice item is discounted' do
         ii = create(:invoice_item, quantity: 10)
@@ -51,7 +57,6 @@ RSpec.describe InvoiceItem, type: :model do
     describe '#apply_discount' do
       it 'applies appropriate discount to unit price' do
         ii = create(:invoice_item, unit_price: 10, quantity: 10)
-        require 'pry'; binding.pry
         bd = create(:bulk_discount,
           merchant_id: ii.merchant.id,
           qty_threshold: 10,
@@ -59,7 +64,6 @@ RSpec.describe InvoiceItem, type: :model do
         )
         
         ii.apply_discount
-        require 'pry'; binding.pry
         expect(ii.discount_price).to eq(9)
       end
     end

@@ -91,5 +91,22 @@ RSpec.describe Invoice, type: :model do
         expect(invoice.created_at_display).to eq('Wednesday, July 28, 2021')
       end
     end
+
+    describe '#discounted_revenue' do
+      it 'calculates total revenue for invoice' do
+        merchant = create(:merchant)
+        bd = BulkDiscount.create(merchant_id: merchant.id, pct_discount: 10, qty_threshold: 5)
+        invoice = create(:invoice)
+        item1 = create(:item, merchant_id: merchant.id, unit_price: 100)
+        invoice_item1 = InvoiceItem.create!(
+          invoice: invoice,
+          item: item1,
+          quantity: 5,
+          unit_price: 100,
+          status: 0
+        )
+        expect(invoice.discounted_revenue).to eq(9.00)
+      end
+    end
   end
 end

@@ -12,6 +12,10 @@ class InvoiceItem < ApplicationRecord
   def price_display
     unit_price / 100.00
   end
+  
+  def discount_display
+    discount_price / 100.00
+  end
 
   def discounted?
     !bulk_discount.nil?
