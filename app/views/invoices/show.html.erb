@@ -16,11 +16,15 @@
    <li><%= "Invoice item quantity: #{inv_item.quantity}" %></li>
    <li><%= "Invoice item price: #{inv_item.unit_price}" %></li>
    <li>Invoice item status: <%= inv_item.status %><%= form_with url:"/merchants/#{@merchant.id}/invoice_item/#{inv_item.id}", method: :patch, local: true do |form|%>
+   <% if inv_item.discounted? %>
+     <li>Discount Applied: <%= link_to "Click here", merchant_bulk_discount_path(@merchant, inv_item.bulk_discount) %></li>
+   <% end %>
    <%= form.select :status, [:pending, :packaged, :shipped], selected: inv_item.status %></li>
-  <%= form.submit "Update Item Status"%>
+   <%= form.submit "Update Item Status"%>
   <% end %>
 </ul>
+<h3><%= "Total revenue from invoice: #{@invoice.total_revenue}" %></h3>
 </section>
 <% end %>
 
-<h3><%= "Total revenue from invoice: #{@invoice.total_revenue}" %></h3>
+<br>
