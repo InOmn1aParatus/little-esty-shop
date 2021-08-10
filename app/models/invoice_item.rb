@@ -7,6 +7,8 @@ class InvoiceItem < ApplicationRecord
   has_one :merchant, through: :item # Test this!
   enum status: [ :pending, :packaged, :shipped ]
 
+  after_save :apply_discount
+
   def price_display
     unit_price / 100.00
   end
@@ -19,5 +21,11 @@ class InvoiceItem < ApplicationRecord
     merchant
     .bulk_discounts
     .max_discount(self.quantity)
+  end
+
+  def apply_discount
+    if self.discounted?
+      self.update_columns(unit_price: unit_price * (1 - bulk_discount.pct_discount / 100.00 ))
+    end
   end
 end

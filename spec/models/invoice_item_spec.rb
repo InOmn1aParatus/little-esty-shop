@@ -34,15 +34,31 @@ RSpec.describe InvoiceItem, type: :model do
       it 'determines if invoice item is discounted' do
         ii = create(:invoice_item, quantity: 10)
         bd = create(:bulk_discount, merchant_id: ii.merchant.id, qty_threshold: 10)
+
         expect(ii.discounted?).to eq(true)
       end
     end
 
-    describe '@bulk_discount' do
+    describe '#bulk_discount' do
       it 'calculates bulk_discount' do
         ii = create(:invoice_item, quantity: 10)
         bd = create(:bulk_discount, merchant_id: ii.merchant.id, qty_threshold: 10)
+        
         expect(ii.bulk_discount).to eq(bd)
+      end
+    end
+
+    describe '#apply_discount' do
+      it 'applies appropriate discount to unit price' do
+        ii = create(:invoice_item, unit_price: 10, quantity: 10)
+        bd = create(:bulk_discount,
+          merchant_id: ii.merchant.id,
+          qty_threshold: 10,
+          pct_discount: 10
+        )
+        
+        ii.apply_discount
+        expect(ii.unit_price).to eq(9)
       end
     end
   end
