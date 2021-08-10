@@ -22,4 +22,5 @@
 
 <br><hr>
 
-<h3>Total Projected Revenue: $<%= @invoice.total_revenue %></h3>
+<h3><%= "Total Projected Revenue: $#{@invoice.total_revenue}" %></h3>
+<h3><%= "Revenue after discounts: $#{@invoice.discounted_revenue}" %></h3>
