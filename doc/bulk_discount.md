@@ -1,6 +1,59 @@
 # Bulk Discounts
 
-This project is an extension of the Little Esty Shop group project. You will add functionality for merchants to create bulk discounts for their items. A “bulk discount” is a discount based on the quantity of items the customer is buying, for example “20% off orders of 10 or more items”.
+## Table of Contents
+
+- [Brief](#brief)
+- [Database Schema](#database-schema)
+- [Tools Used](#tools-used)
+- [Contributors](#contributors)
+- [Special Notes](#special-notes)
+- [Learning Goals](#learning-goals)
+- [Setup](#setup)
+- [Rubric](#rubric)
+- [User Stories](#user-stories)
+- [Project Outline](#project-outline)
+- [Extensions](#extensions)
+
+## Brief
+
+**Bulk Discounts** was a 1-week solo project designed as an extension to the *Little Esty Shop* project. Students had the option of building off of legacy code from the previous project or beginning with a starter repo from Turing. I opted to build off of Legacy code because I had a greater understanding of the setup than I would have with a different repository.
+
+## Database Schema
+
+[![Screen-Shot-2021-08-10-at-6-46-34-PM.png](https://i.postimg.cc/PqVZbwWd/Screen-Shot-2021-08-10-at-6-46-34-PM.png)](https://postimg.cc/Y4ghMjDP)
+
+## Tools Used
+
+| Development | Testing       | Gems          |
+|   :----:    |    :----:     |    :----:     |
+| Ruby 2.7.2  | RSpec         | SimpleCov     |
+| Rails       |               | Pry           |
+| HTML5       |               | Capybara      |
+| CSS3        |               | ShouldaMatcher|
+| VSCode      |               | Launchy       |
+| Github      |               |               |
+
+## Contributors
+
+👤  **Matt Kragen** *Primary Contributor*
+- [GitHub](https://github.com/InOmn1aParatus)
+- [LinkedIn](https://www.linkedin.com/in/mattkragen/)
+
+👤  **Amanda McGuire** *Legacy Contributor*
+- [GitHub](https://github.com/amcguire17)
+- [LinkedIn](https://www.linkedin.com/in/amanda-e-mcguire/)
+
+👤  **Carina Sweet** *Legacy Contributor*
+- [GitHub](https://github.com/chsweet)
+- [LinkedIn](https://www.linkedin.com/in/carina-h-sweet/)
+
+👤  **Ezzedine Alwafai** *Legacy Contributor*
+- [GitHub](https://github.com/ealwafai)
+- [LinkedIn](https://www.linkedin.com/in/ezzedine-alwafai/)
+
+## Special Notes
+
+The GitHub API function was removed from the app for the purposes of testing new functions within the Bulk Discounts project requirements. This code is still available inside of the views folder and can be placed into `application.html.erb` as a header or footer to achieve its original purpose.
 
 ## Learning Goals
 - Write migrations to create tables and relationships between tables
@@ -25,7 +78,9 @@ If your Little Esty Shop project is not complete, fork this repo as a starting p
 | 2: Passing with Concerns | One to two of the completion criteria for Bulk Discount features are not complete | Students utilize MVC to organize code, but cannot defend some of their design decisions. 3 or more infractions are present. RESTful conventions are only sometimes followed. | Ruby is used to process data that could use ActiveRecord instead. Some instances where ActiveRecord helpers are not utilized. Some queries not accurately implemented.	                                                   | Feature test coverage between 90% and 98%, or model test coverage below 100%, or tests are not meaningfully written or have an unclear objective, or tests do not utilize within blocks. Missing sad path or edge case testing.                              |
 | 1: Failing               | More than two of the completion criteria for Bulk Discount feature is incomplete  | Students do not effectively organize code using MVC.	                                                                                                                        | Ruby is used to process data more often than ActiveRecord. Many cases where ActiveRecord helpers are not utilized.	                                                                                                       | Below 90% coverage for either features or models. TDD was not used.                                                                                                                                                                                          |
 
-## Bulk Discounts
+
+
+## Project Outline
 
 ### Bulk Discounts are subject to the following criteria:
 
