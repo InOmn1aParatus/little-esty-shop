@@ -4,7 +4,7 @@ class InvoiceItem < ApplicationRecord
   validates :status, presence: true
   belongs_to :invoice
   belongs_to :item
-  has_one :merchant, through: :item # Test this!
+  has_one :merchant, through: :item
   enum status: [ :pending, :packaged, :shipped ]
 
   after_save :apply_discount
