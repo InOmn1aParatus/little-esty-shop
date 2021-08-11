@@ -103,8 +103,3 @@ Learning goals and areas of focus consisted of:
 👤  **Matt Kragen**
 - [GitHub](https://github.com/InOmn1aParatus)
 - [LinkedIn](https://www.linkedin.com/in/mattkragen/)
-
-# Bulk Discounts Extension
-
-This project is an extension of the Little Esty Shop group project. You will add functionality for merchants to create bulk discounts for their items. A “bulk discount” is a discount based on the quantity of items the customer is buying, for example “20% off orders of 10 or more items”.
-
