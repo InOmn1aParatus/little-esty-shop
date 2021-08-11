@@ -20,7 +20,7 @@
 
 ## Database Schema
 
-[![Screen-Shot-2021-08-10-at-6-46-34-PM.png](https://i.postimg.cc/PqVZbwWd/Screen-Shot-2021-08-10-at-6-46-34-PM.png)](https://postimg.cc/Y4ghMjDP)
+[![Screen-Shot-2021-08-10-at-7-19-08-PM.png](https://i.postimg.cc/y8nq61HM/Screen-Shot-2021-08-10-at-7-19-08-PM.png)](https://postimg.cc/hXJZpqhs)
 
 ## Tools Used
 
