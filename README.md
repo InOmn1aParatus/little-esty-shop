@@ -101,5 +101,5 @@ Learning goals and areas of focus consisted of:
 - [LinkedIn](https://www.linkedin.com/in/ezzedine-alwafai/)
 
 👤  **Matt Kragen**
-- [GitHub](https://github.com/InOmn1aParatus)
+- [GitHub](https://github.com/matt-kragen)
 - [LinkedIn](https://www.linkedin.com/in/mattkragen/)
